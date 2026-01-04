@@ -33,7 +33,7 @@ app.post('/send-otp', async (req, res) => {
   await supabase.from('email_otps').upsert({ email, otp, expires_at });
 
   try {
-    const datat = await resend.emails.send({
+    const data = await resend.emails.send({
       from: 'SwapNest <onboarding@resend.dev>',
       to: email,
       subject: 'Your Verification Code',
