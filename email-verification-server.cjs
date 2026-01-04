@@ -107,6 +107,8 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // 1. Send OTP
 app.post('/send-otp', async (req, res) => {
   const { email } = req.body;
+  console.log("OTP requested for:", email);
+  
 
   if (!email || !email.endsWith('@rvce.edu.in')) {
     return res.status(400).json({ error: 'Only @rvce.edu.in emails allowed' });
